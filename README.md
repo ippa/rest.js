@@ -1,10 +1,11 @@
 rest.js
 =======
 * Interact with restfull APIs through JavaScript
-* No dependencies
+* Supports ordinary XHR-requests as well as JSONP
+* No dependencies, minimalistic
 
 Syntax
------
+------
 <pre>
   restjs.get(url, callback)
   restjs.post(url, data, callback)
@@ -17,6 +18,14 @@ Syntax
   restjs.useJSONP()         /* use JSONP for all requests */
   restjs.useJSON()          /* use normal JSON for all requests */
 </pre>
+
+
+Gotchas
+-------
+Since JSONP is using dynamically injected script-tags, rectjs doesn't support POST, PUT and DELETE natively using JSONP.
+We try to get around this fact with the magic defactostandard _method=XXX parameter.
+
+restjs.unpack() creates the global functions get(), post(), put() and del(). Not delete() since it's a reserved word in javascript.
 
 happy apiing,
 
