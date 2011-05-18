@@ -6,34 +6,24 @@
     <script type="text/javascript" src="rest.js"></script>
   </head>
 
-  <body onload="start()">
+  <body>
     <h1>rest.js examples</h1>
-    Everything you see on this page (except for this message) is dynamically loaded from REST-APIs with <a href="http://github.com/ippa/rest.js">rest.js</a>
+    Everything you see on this page (except for this message) is dynamically loaded from REST-APIs and webpages with <a href="http://github.com/ippa/rest.js">rest.js</a>
   </body>
 
   <script>
     var body = document.getElementsByTagName("body")[0]
   
-    function showAs(title) {
-      return function(data) {
-        body.innerHTML += "<h2>" + title + "</h2>"
-        body.innerHTML += data
-      }
-    }
-
-    function start() {
-      restjs.useJSONP()
-      restjs.get("http://twitter.com/status/user_timeline/ippalix.json?count=10", function(data) {
-        body.innerHTML += "<h2>10 latest tweets from ippalix</h2>"
-        data.forEach( function(tweet) {
-          body.innerHTML += "- " + tweet.text + "<br />"
-        });
+    restjs.get("http://twitter.com/status/user_timeline/ippalix.json?count=10", function(data) {
+      body.innerHTML += "<h2>10 latest tweets from ippalix</h2>"
+      data.forEach( function(tweet) {
+        body.innerHTML += "- " + tweet.text + "<br />"
       });
+    });
 
-      restjs.useJSON().get("http://ippa.se/restjs/rest.js", function(data) {
-        body.innerHTML += "<h2>rest.js source code</h2>"
-        body.innerHTML += data
-      });
-    }
+    restjs.useJSON().get("http://ippa.se/restjs/rest.js", function(data) {
+      body.innerHTML += "<h2>rest.js source code</h2>"
+      body.innerHTML += data
+    });
   </script>
 </html>
