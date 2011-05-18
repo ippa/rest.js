@@ -4,6 +4,8 @@ rest.js
 * Supports ordinary XHR-requests as well as JSONP
 * No dependencies, minimalistic
 
+See index.html for example-usage.
+
 Syntax
 ------
 <pre>
