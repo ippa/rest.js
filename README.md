@@ -35,9 +35,10 @@ Example
 
 Gotchas
 -------
-* Since JSONP is using dynamically injected script-tags, is supports GET (not POST, PUT and DELETE).
-
-* restjs.unpack() creates the global functions get(), post(), put() and del(). Not delete() since it's a reserved word in javascript.
+* Since JSONP is using dynamically injected script-tags, is supports GET (not POST, PUT and DELETE)
+* JSON supports all methods, but doesn't work cross domain(This is why the JSONP "hack" was invented)
+* restjs.unpack() creates the global functions get(), post(), put() and del(). Not delete() since it's a reserved word in javascript
+* No errorhandling just yet, don't make bad API requests ;-)
 
 happy apiing,
 
