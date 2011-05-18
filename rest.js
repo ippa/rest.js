@@ -1,6 +1,6 @@
 /*
  *
- * rest.js - restfull, asynchronous javascript request library (get/post/put/delete)
+ * rest.js - JavaScript REST client micro library for web apps
  *
  * by http://ippa.se/
  *
@@ -50,13 +50,12 @@
       script.type = "text/javascript" 
       script.src = url
       document.getElementsByTagName('head')[0].appendChild(script)
-      console.log(url)
     }
     else {
       var req = new XMLHttpRequest()
       req.onreadystatechange = createCallback(callback)
       req.open(method, url, true, login, password)
-      data ? req.send(data) :  req.send(null)
+      data ? req.send(data) : req.send(null)
     }
   }
   
