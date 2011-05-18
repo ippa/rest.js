@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>rest.js example</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/> 
+    <script type="text/javascript" src="rest.js"></script>
+  </head>
+
+  <body onload="start()"> </body>
+
+  <script>
+    var body = document.getElementsByTagName("body")[0]
+  
+    function showAs(title) {
+      return function(data) {
+        body.innerHTML += "<h2>" + title + "</h2>"
+        body.innerHTML += data
+      }
+    }
+
+    function start() {
+      // restjs.get("http://twitter.com/status/user_timeline/ippalix.json?count=5", showAs("5 latest tweets from ippalix") )
+      restjs.get("http://dev.ippa.se/restjs/rest.js", showAs("rest.js source") )
+    }
+  </script>
+</html>
