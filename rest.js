@@ -41,9 +41,12 @@
       window[callback_name] = function(data) { callback(data) }
   
       url += (url.indexOf("?")==-1) ? "?" : "&"   /* Add ? or & depending on how the current URL looks */
-      url += "callback=" + callback_name
+      url += "callback=" + callback_name + "&jsoncallback=" + callback_name
+      if(method != "GET")  { 
+        url += "?_method=" + method
+        throw "JSONP doesn't suppoert " + method
+      }
 
-      if(method != "GET") url += "?_method=" + method;
       script.type = "text/javascript" 
       script.src = url
       document.getElementsByTagName('head')[0].appendChild(script)

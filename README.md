@@ -24,8 +24,7 @@ Syntax
 
 Gotchas
 -------
-Since JSONP is using dynamically injected script-tags, rectjs doesn't support POST, PUT and DELETE natively using JSONP.
-We try to get around this fact with the magic defactostandard _method=XXX parameter.
+Since JSONP is using dynamically injected script-tags, is supports GET (not POST, PUT and DELETE).
 
 restjs.unpack() creates the global functions get(), post(), put() and del(). Not delete() since it's a reserved word in javascript.
 
