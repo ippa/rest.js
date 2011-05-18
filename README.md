@@ -1,19 +1,21 @@
 rest.js
 =======
-* interact with any restfull api through javascript
-* no dependencies at all
-* supports both direct requests and model extension (TODO :]...)
+* Interact with restfull APIs through JavaScript
+* No dependencies
 
 Usage
 -----
+<pre>
   restjs.get(url, callback)
   restjs.post(url, data, callback)
   restjs.put(url, data, callback)
   restjs.delete(url, callback)
 
-  restjs.unpack()      /* make get, post, put, delete available as top level methods */
-  restjs.baseURL(url)  /* prefix all requests with this url */
-
+  restjs.unpack()           /* make get, post, put & del (delete is a reserved word) available as top level methods */
+  restjs.login(login)       /* set login to use in all requests */
+  restjs.password(password) /* set password to use in all requests */
+  restjs.baseURL(url)       /* prefix all requests with this url */
+</pre>
 
 happy apiing,
 
