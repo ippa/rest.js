@@ -20,8 +20,16 @@
         body.innerHTML += "- " + tweet.text + "<br />"
       });
     });
+ 
+    restjs.get("http://www.flickr.com/services/feeds/photos_public.gne?format=json", function(data) {
+      body.innerHTML += "<h2>Using the Flickr API</h2>"
+      data["items"].forEach( function(item, total) {
+        body.innerHTML += '<a href="' + item["link"] + '">' + '<img src="' + item["media"]["m"] + '" /></a>'
+      });
+    });
 
-    restjs.useJSON().get("http://ippa.se/restjs/rest.js", function(data) {
+    restjs.useJSON();
+    restjs.get("http://ippa.se/restjs/rest.js", function(data) {
       body.innerHTML += "<h2>rest.js source code</h2>"
       body.innerHTML += data
     });
