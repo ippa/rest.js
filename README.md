@@ -40,6 +40,8 @@ Gotchas
 * restjs.unpack() creates the global functions get(), post(), put() and del(). Not delete() since it's a reserved word in javascript
 * No errorhandling just yet, don't make bad API requests ;-)
 
+If You have a REST-api, please consider (enabling cross-origin resource sharing)[http://enable-cors.org/] so we don't have to reside to hacks in the future.
+
 happy apiing,
 
 ippa.
