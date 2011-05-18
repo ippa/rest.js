@@ -34,13 +34,17 @@
   restjs.put = function(url, data, callback)  { restjs.request('PUT', url, data, callback)  }
   restjs.delete = function(url, callback)     { restjs.request('DELETE', url, callback)     }
  
+  /* All our requests go through this method, which provides standard XMLHttpRequest and <script>-tag injection requests (JSONP) */
   restjs.request = function(method, url, data, callback) {
     if(use_jsonp) {
       var script = document.createElement("script")
       var callback_name = createID()
       window[callback_name] = function(data) { callback(data) }
   
-      url += (url.indexOf("?")==-1) ? "?" : "&"   /* Add ? or & depending on how the current URL looks */
+      /* Add ? or & depending on how the current URL looks */
+      url += (url.indexOf("?")==-1) ? "?" : "&"
+
+      /* callback= seems to be fairly standard, flickr uses jsoncallback= though */
       url += "callback=" + callback_name + "&jsoncallback=" + callback_name
       if(method != "GET")  { 
         url += "?_method=" + method
