@@ -18,7 +18,7 @@
   }
 
   function createID() {
-    var text = "";
+    var text = "cb";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
     for(var i=0; i < 20; i++) text += possible.charAt(Math.floor(Math.random() * possible.length));
     return text
@@ -36,6 +36,14 @@
  
   /* All our requests go through this method, which provides standard XMLHttpRequest and <script>-tag injection requests (JSONP) */
   restjs.request = function(method, url, data, callback) {
+    /*
+    current_base_url = window.location.href.split("/")
+    current_base_url.pop()
+    current_base_url = current_base_url.join("/")
+    var prefix = base_url ? base_url : current_base_url
+    if(url[0] == "/") prefix = window.location.host;
+    */
+ 
     if(use_jsonp) {
       var script = document.createElement("script")
       var callback_name = createID()
