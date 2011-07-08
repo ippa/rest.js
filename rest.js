@@ -32,7 +32,7 @@
   restjs.get = function(url, callback)        { restjs.request('GET', url, null, callback)  }
   restjs.post = function(url, data, callback) { restjs.request('POST', url, data, callback) }
   restjs.put = function(url, data, callback)  { restjs.request('PUT', url, data, callback)  }
-  restjs.delete = function(url, callback)     { restjs.request('DELETE', url, callback)     }
+  restjs.del = function(url, callback)     { restjs.request('DELETE', url, callback)     }
  
   /* All our requests go through this method, which provides standard XMLHttpRequest and <script>-tag injection requests (JSONP) */
   restjs.request = function(method, url, data, callback) {
@@ -75,7 +75,7 @@
     window.get = restjs.get
     window.post = restjs.post
     window.put = restjs.put
-    window.del = restjs.delete
+    window.del = restjs.del
   }
 
   window.restjs = restjs
