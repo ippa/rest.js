@@ -72,10 +72,10 @@
   }
   
   restjs["unpack"] = function() {
-    window["get"] = restjs.get
-    window["post"] = restjs.post
-    window["put"] = restjs.put
-    window["del"] = restjs.del
+    window["get"] = restjs["get"]
+    window["post"] = restjs["post"]
+    window["put"] = restjs["put"]
+    window["del"] = restjs["del"]
   }
 
   window["restjs"] = restjs
