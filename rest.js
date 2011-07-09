@@ -56,7 +56,7 @@
       url += "callback=" + callback_name + "&jsoncallback=" + callback_name
       if(method != "GET")  { 
         url += "?_method=" + method
-        throw "JSONP doesn't suppoert " + method
+        throw "JSONP doesn't support " + method
       }
 
       script.type = "text/javascript" 
