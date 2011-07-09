@@ -3,6 +3,7 @@ rest.js
 * Interact with restfull APIs through JavaScript
 * Supports ordinary XHR-requests as well as JSONP
 * No dependencies, minimalistic
+* Compatible with Google closure compiler advanced mode
 
 [DEMO](http://ippa.se/restjs/)
 
