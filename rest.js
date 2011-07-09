@@ -24,15 +24,15 @@
     return text
   }
 
-  restjs.useJSON = function()                 { use_jsonp = false; return restjs }
-  restjs.useJSONP = function()                { use_jsonp = true; return restjs }
-  restjs.login = function(l)                  { login = l; return restjs }
-  restjs.password = function(p)               { password = p; return restjs }
-  restjs.baseURL = function(url)              { base_url = url; return restjs }
-  restjs.get = function(url, callback)        { restjs.request('GET', url, null, callback)  }
-  restjs.post = function(url, data, callback) { restjs.request('POST', url, data, callback) }
-  restjs.put = function(url, data, callback)  { restjs.request('PUT', url, data, callback)  }
-  restjs.del = function(url, callback)     { restjs.request('DELETE', url, null, callback)     }
+  restjs["useJSON"] = function()                 { use_jsonp = false; return restjs }
+  restjs["useJSONP"] = function()                { use_jsonp = true; return restjs }
+  restjs["login"] = function(l)                  { login = l; return restjs }
+  restjs["password"] = function(p)               { password = p; return restjs }
+  restjs["baseURL"] = function(url)              { base_url = url; return restjs }
+  restjs["get"] = function(url, callback)        { restjs.request('GET', url, null, callback)  }
+  restjs["post"] = function(url, data, callback) { restjs.request('POST', url, data, callback) }
+  restjs["put"] = function(url, data, callback)  { restjs.request('PUT', url, data, callback)  }
+  restjs["del"] = function(url, callback)     { restjs.request('DELETE', url, null, callback)     }
  
   /* All our requests go through this method, which provides standard XMLHttpRequest and <script>-tag injection requests (JSONP) */
   restjs.request = function(method, url, data, callback) {
@@ -71,12 +71,12 @@
     }
   }
   
-  restjs.unpack = function() {
-    window.get = restjs.get
-    window.post = restjs.post
-    window.put = restjs.put
-    window.del = restjs.del
+  restjs["unpack"] = function() {
+    window["get"] = restjs.get
+    window["post"] = restjs.post
+    window["put"] = restjs.put
+    window["del"] = restjs.del
   }
 
-  window.restjs = restjs
-})(window.restjs||{})
+  window["restjs"] = restjs
+})(window["restjs"]||{})
