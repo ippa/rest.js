@@ -66,6 +66,7 @@
     else {
       var req = new XMLHttpRequest()
       req.onreadystatechange = createCallback(callback)
+      req.setRequestHeader('Content-Type', 'application/json')
       req.open(method, url, true, login, password)
       data ? req.send(data) : req.send(null)
     }
