@@ -65,9 +65,10 @@
     }
     else {
       var req = new XMLHttpRequest()
-      req.onreadystatechange = createCallback(callback)
+      if(callback) req.onreadystatechange = createCallback(callback);
       req.open(method, url, true, login, password)
-      req.setRequestHeader('Content-Type', 'application/json')
+      //req.setRequestHeader('Content-Type', 'text/plain')
+      req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
       data ? req.send(data) : req.send(null)
     }
   }
